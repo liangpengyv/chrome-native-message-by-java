@@ -5,24 +5,24 @@
 ### 项目结构
 
 ```
-├─extensions-app  # **Chrome 浏览器扩展**
+├─extensions-app        # 【Chrome 浏览器扩展】
 │  │  background.js
 │  │  content.js
 │  │  manifest.json
 │  └─icons
 │
-├─native-host  # **本地 Java 程序**
-│  │  manifest.json  # 被注册到注册表的配置文件
-│  │  pom.xml  # Maven pom 配置
+├─native-host           # 【本地 Java 程序】
+│  │  manifest.json     # 被注册到注册表的配置文件
+│  │  pom.xml           # Maven pom 配置
 │  │  register-app.reg  # 注册表文件
-│  │  start.bat  # 启动本机 Java 程序的 BAT 脚本
-│  ├─out
+│  │  start.bat         # 启动本机 Java 程序的 BAT 脚本
+│  ├─out                # 编译生成 Java 程序输出目录
 │  │  └─artifacts
 │  │      └─native_host_jar
-│  │              native-host.jar  # 编译生成的本地 Java 程序
-│  ├─src  # Java 源码
+│  │              native-host.jar
+│  ├─src                # Java 程序源码
 │ 
-└─test-web  # **用于测试通信的 Web 页面**
+└─test-web              # 【用于测试通信的 Web 页面】
     │  index.html
     │  index.js
     ├─css
