@@ -1,0 +1,9 @@
+{
+  "name": "ink.laoliang.chrome",
+  "description": "Native Messaging Application",
+  "path": "start.bat",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://hkemmiacdjkdlnafmnlfhankphoiikbm/"
+  ]
+}

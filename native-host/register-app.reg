@@ -1,0 +1,3 @@
+Windows Registry Editor Version 5.00
+[HKEY_CURRENT_USER\Software\Google\Chrome\NativeMessagingHosts\ink.laoliang.chrome]
+@="C:\\Users\\lpy\\Desktop\\chrome-native-message-by-java\\native-host\\manifest.json"
