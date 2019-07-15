@@ -4,6 +4,7 @@
 
 ### 项目结构
 
+```
 ├─extensions-app  # **Chrome 浏览器扩展**
 │  │  background.js
 │  │  content.js
@@ -26,6 +27,7 @@
     │  index.js
     ├─css
     └─js
+```
 
 ### 参数配置
 
