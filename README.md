@@ -1,28 +1,28 @@
 # Chrome Native Message By Java
 
-> 这是一个 Chrome Extensions 的 **Native Message** 接口示例项目，用来演示 Chrome Extensions 与本地 Java 程序的通信。
+> 这是一个 Chrome 扩展的 **Native Message** 接口示例项目，用来演示 Chrome 扩展与本地 Java 程序的通信。
 >
 > 应用场景为：**RPA 项目中网页内容选取**。
 
 ### 项目结构
 
 ```
-├─extensions-app        # 【Chrome 浏览器扩展】
+├─extensions-app        			# 【Chrome 浏览器扩展】
 │  │  background.js
 │  │  content.js
 │  │  manifest.json
 │  └─icons
 │
-├─native-host           # 【本地 Java 程序】
-│  │  manifest.json     # 被注册到注册表的配置文件
-│  │  pom.xml           # Maven pom 配置
-│  │  register-app.reg  # 注册表文件
-│  │  start.bat         # 启动本机 Java 程序的 BAT 脚本
-│  ├─out                # 编译生成 Java 程序输出目录
+├─native-host           			# 【本地 Java 程序】
+│  │  manifest.json     			# 被注册到注册表的配置文件
+│  │  pom.xml           			# Maven pom 配置
+│  │  register-app.reg  			# 注册表文件
+│  │  start.bat         			# 启动本机 Java 程序的 BAT 脚本
+│  ├─out                			# 编译生成 Java 程序输出目录
 │  │  └─artifacts
 │  │      └─native_host_jar
-│  │              native-host.jar
-│  └─src                # Java 程序源码
+│  │              native-host.jar	# 编译生成的 Java 程序
+│  └─src                			# Java 程序源码
 ```
 
 ### 参数配置
