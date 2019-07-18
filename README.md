@@ -1,6 +1,8 @@
 # Chrome Native Message By Java
 
 > 这是一个 Chrome Extensions 的 **Native Message** 接口示例项目，用来演示 Chrome Extensions 与本地 Java 程序的通信。
+>
+> 应用场景为：**RPA 项目中网页内容选取**。
 
 ### 项目结构
 
@@ -20,13 +22,7 @@
 │  │  └─artifacts
 │  │      └─native_host_jar
 │  │              native-host.jar
-│  ├─src                # Java 程序源码
-│ 
-└─test-web              # 【用于测试通信的 Web 页面】
-    │  index.html
-    │  index.js
-    ├─css
-    └─js
+│  └─src                # Java 程序源码
 ```
 
 ### 参数配置
@@ -39,7 +35,7 @@
 ### 运行测试
 
 1. **连接本地 Java 程序** - 重启已安装扩展的 Chrome 浏览器 或 刷新扩展程序管理页的 *Native Message For Java* 扩展，本地 Java 程序将被启动并与 Chrome 浏览器建立连接。
-2. **打开 Web 测试页面** - 使用 Chrome 浏览器打开 `test-web/index.html` 页面，与本地 Java 程序进行互发消息。
+2. **启动网页元素选择器** - Chrome 浏览器打开任意网页，点击本地 Java 程序上的按钮，使用鼠标进行页面元素选取。
 
 ### 其他
 

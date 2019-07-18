@@ -3,7 +3,6 @@ package ink.laoliang.chrome;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -13,8 +12,7 @@ import java.nio.charset.StandardCharsets;
 
 public class Main extends JFrame {
 
-    private static Main jframe;
-    private static JTextField messageInputText;
+    private static Main jFrame;
     private static JTextArea messageShowText;
 
     private static ObjectMapper mapper = new ObjectMapper();
@@ -27,30 +25,25 @@ public class Main extends JFrame {
         setSize(400, 400);
         setVisible(true);
 
-        // 设置窗体布局　
-        setLayout(new FlowLayout());
-
-        // 添加标签
-        JLabel label = new JLabel("Input Message: ");
-        add(label);
-
-        // 添加文本输入框
-        messageInputText = new JTextField("Hey, I am Host.", 10);
-        add(messageInputText);
+        // 设置窗体布局
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        add(panel);
 
         // 添加按钮，及按钮事件
-        JButton sendButton = new JButton("Send");
-        add(sendButton);
-        sendButton.addActionListener(new ButtonListener());
+        JButton selectorButton = new JButton("选取 Chrome 浏览器页面元素");
+        selectorButton.addActionListener(new ButtonListener());
+        panel.add(selectorButton);
 
         // 添加文本显示区
-        messageShowText = new JTextArea("[Message Content...]\n");
-        add(messageShowText);
+        messageShowText = new JTextArea();
+        messageShowText.setLineWrap(true);
+        panel.add(new JScrollPane(messageShowText));
     }
 
     public static void main(String[] args) throws IOException {
 
-        SwingUtilities.invokeLater(() -> jframe = new Main());
+        SwingUtilities.invokeLater(() -> jFrame = new Main());
 
         while (true) {
 
@@ -59,7 +52,10 @@ public class Main extends JFrame {
             MessageObject messageJson = mapper.readValue(messageStr, MessageObject.class);
 
             // 本地应用消息框展示读取到的消息
-            messageShowText.setText(messageShowText.getText() + "\n[From Chrome:] " + messageJson.getMessage());
+            messageShowText.setText(messageJson.getMessage());
+
+            // 恢复应用窗口
+            jFrame.setExtendedState(JFrame.NORMAL);
         }
     }
 
@@ -71,10 +67,12 @@ public class Main extends JFrame {
             try {
                 // 构建并发送消息
                 MessageObject messageJson = new MessageObject();
-                messageJson.setMessage(messageInputText.getText());
-                messageShowText.setText(messageShowText.getText() + "\n[Send To Chrome:] " + messageJson.getMessage());
+                messageJson.setMessage("start selector");
                 String messageStr = mapper.writeValueAsString(messageJson);
                 sendMessage(messageStr);
+
+                // 最小化应用窗口
+                jFrame.setExtendedState(JFrame.ICONIFIED);
             } catch (IOException e) {
                 e.printStackTrace();
             }
