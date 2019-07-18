@@ -92,7 +92,12 @@ function startSelector() {
 
         // 向本地程序发送得到的数据
         const selectedElementData = {};
-        selectedElementData.message = selectedElement.outerHTML;
+        selectedElementData.message =
+            "title: " + document.title + "\n\n" +
+            "url: " + document.documentURI + "\n\n" +
+            "position: (" + event.pageX + ", " + event.pageY + ")\n\n" +
+            "outHTML: " + selectedElement.outerHTML + "\n\n" +
+            "and so on......";
         chrome.runtime.sendMessage(selectedElementData);
 
         // 销毁选择器创建的各种资源
